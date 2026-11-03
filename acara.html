@@ -344,18 +344,18 @@
     <!-- SCRIPT JAVASCRIPT -->
     <script>
         let configData = {
-            groomName: "Muhamad Husnul Firdaus, S.Kom.",
-            groomParents: "Putra Pertama dari Bpk. H. Ahmad & Ibu Hj. Siti",
+            groomName: "Firdaus Siregar",
+            groomParents: "Putra Bungsu dari Bpk. Damri Siregar & Ibu Rosmayanti",
             groomPhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80",
-            brideName: "Riska Larasati, S.Pd.",
-            brideParents: "Putri Kedua dari Bpk. Dr. Bambang & Ibu Hj. Endang",
+            brideName: "Riska Muldani",
+            brideParents: "Putri Bungsu dari Bpk. Dana & Ibu Ikah",
             bridePhoto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80",
-            akadDate: "Sabtu, 28 November 2026",
-            akadTime: "08.00 WIB - Selesai",
-            akadLocation: "Masjid Agung Al-Azhar, Jakarta",
-            resepsiDate: "Sabtu, 28 November 2026",
-            resepsiTime: "11.00 WIB - 14.00 WIB",
-            resepsiLocation: "Grand Ballroom Hotel Indonesia Kempinski",
+            akadDate: "Jum'at, 13 November 2026",
+            akadTime: "07.00 WIB - Selesai",
+            akadLocation: "Kp. Neglasari, Kedusunan Sukahurip, Desa Bojonggambir",
+            resepsiDate: "Jum'at, 13 November 2026",
+            resepsiTime: "07.00 WIB - Selesai",
+            resepsiLocation: "Kp. Neglasari, Kedusunan Sukahurip, Desa Bojonggambir",
             targetDate: "2026-11-28T08:00:00",
             mapsUrl: "https://maps.google.com",
             scriptUrl: ""
@@ -559,14 +559,60 @@
             }
         }
 
-        // Add to Google Calendar Template
+        // INGKATKAN KALENDER BAWAAN HP (DEEPLINK FORMAT .ICS / ICALENDAR)
         function addToCalendar(type) {
-            const title = encodeURIComponent(`Pernikahan Firdaus & Riska (${type})`);
-            const details = encodeURIComponent(`Acara ${type} Pernikahan Muhamad Husnul Firdaus & Riska Larasati.`);
-            const location = encodeURIComponent(type === 'Akad Nikah' ? configData.akadLocation : configData.resepsiLocation);
+            const isAkad = (type === 'Akad Nikah');
+            const title = `Pernikahan Firdaus & Riska (${type})`;
+            const description = `Acara ${type} Pernikahan Firdaus Siregar & Riska Muldani.`;
+            const location = isAkad ? configData.akadLocation : configData.resepsiLocation;
+
+            // Waktu UTC (28 November 2026: 08:00 WIB = 01:00 UTC, 11:00 WIB = 04:00 UTC)
+            const startTime = isAkad ? '20261128T010000Z' : '20261128T040000Z';
+            const endTime = isAkad ? '20261128T040000Z' : '20261128T070000Z';
+
+            // Format Standar iCalendar (.ics)
+            const icsData = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//Firdaus Riska Wedding//ID',
+                'CALSCALE:GREGORIAN',
+                'METHOD:PUBLISH',
+                'BEGIN:VEVENT',
+                `SUMMARY:${title}`,
+                `DESCRIPTION:${description}`,
+                `LOCATION:${location}`,
+                `DTSTART:${startTime}`,
+                `DTEND:${endTime}`,
+                'STATUS:CONFIRMED',
+                'BEGIN:VALARM',
+                'TRIGGER:-PT2H',
+                'ACTION:DISPLAY',
+                'DESCRIPTION:Pengingat Acara Pernikahan',
+                'END:VALARM',
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\r\n');
+
+            // Eksekusi Pemanggilan Kalender Bawaan HP
+            const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8;' });
             
-            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`;
-            window.open(calendarUrl, '_blank');
+            // Khusus iOS/iPhone Safari
+            if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i)) {
+                const link = document.createElement('a');
+                link.href = 'data:text/calendar;charset=utf8,' + encodeURIComponent(icsData);
+                link.download = `undangan-${isAkad ? 'akad' : 'resepsi'}.ics`;
+                link.click();
+            } else {
+                // Android & Desktop (Membuka aplikasi kalender sistem bawaan)
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', `undangan-${isAkad ? 'akad' : 'resepsi'}.ics`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+            }
         }
 
         // Modal Admin Generator
@@ -589,7 +635,6 @@
             const resultDiv = document.getElementById('admin-link-result');
             const longUrl = getBaseLink();
 
-            // Cek jika berjalan di lingkungan lokal (file:// atau localhost)
             if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
                 shortUrlCache = longUrl;
                 resultDiv.innerText = longUrl;
@@ -610,7 +655,6 @@
             btn.innerText = "Memproses Link...";
 
             try {
-                // Menggunakan Proxy AllOrigins untuk menghindari CORS Block
                 const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(`https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}`);
                 const res = await fetch(proxyUrl);
                 const data = await res.json();
