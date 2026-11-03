@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel+Decorative:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -20,6 +20,7 @@
                     fontFamily: {
                         script: ['"Alex Brush"', 'cursive'],
                         serif: ['"Cormorant Garamond"', 'serif'],
+                        arabic: ['Amiri', 'serif'],
                         cinzel: ['"Cinzel Decorative"', 'serif'],
                         sans: ['Montserrat', 'sans-serif'],
                     },
@@ -44,7 +45,7 @@
         }
     </script>
     <style>
-        /* Tekstur Kertas Parchment Vintage */
+        /* Tekstur Kertas Parchment Vintage Realistis */
         .bg-parchment-texture {
             background-color: #FAF6EE;
             background-image: 
@@ -96,7 +97,10 @@
                 <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L40,0 C30,10 20,20 20,40 C20,20 10,10 0,0 Z M0,0 L0,40 C10,30 20,20 40,20 C20,20 10,10 0,0 Z"/></svg>
             </div>
 
-            <p class="font-serif tracking-[0.2em] text-gold-600 uppercase text-[10px] sm:text-xs mb-2 font-semibold">Undangan Pernikahan</p>
+            <!-- BISMILLAH & HEADER COVER -->
+            <p class="font-arabic text-xl sm:text-2xl text-gold-600 mb-1 leading-relaxed">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+            <p class="font-serif italic font-bold tracking-[0.2em] text-parchment-sub uppercase text-xs mb-1">Walimatul 'Ursy</p>
+            <p class="font-serif tracking-[0.15em] text-gold-600 uppercase text-[10px] mb-2 font-semibold">Undangan Pernikahan</p>
             <h1 class="font-script text-4xl sm:text-6xl text-gold-gradient my-2 py-1" id="cover-title">Firdaus & Riska</h1>
             
             <div class="my-5 py-3 border-y border-[#D4AF37]/30 bg-parchment-card/50 rounded">
@@ -114,14 +118,14 @@
         </div>
     </div>
 
-    <!-- HALAMAN UTAMA UNDANGAN (TAMPILAN ASLI FAVORITMU) -->
+    <!-- HALAMAN UTAMA UNDANGAN -->
     <main class="min-h-screen py-4 sm:py-8 px-2 sm:px-6 flex justify-center items-center bg-[#1A1816]">
         <div class="bg-parchment-texture max-w-2xl w-full rounded-sm p-4 sm:p-10 border-4 sm:border-8 border-double border-[#D4AF37]/60 paper-shadow-3d relative my-2 sm:my-4">
             
             <!-- Bingkai Garis Dalam -->
             <div class="border border-[#D4AF37]/50 p-3 sm:p-8 relative">
                 
-                <!-- Ornamen Ukiran Sudut Kartu (SVG Pas Presisi) -->
+                <!-- Ornaments Corner SVG -->
                 <svg class="absolute -top-2.5 -left-2.5 sm:-top-3 sm:-left-3 w-6 h-6 sm:w-8 sm:h-8 text-gold-500" viewBox="0 0 50 50" fill="currentColor">
                     <path d="M0,0 L25,0 C15,5 10,10 10,25 C10,10 5,5 0,0 Z M0,0 L0,25 C5,15 10,10 25,10 C10,10 5,5 0,0 Z"/>
                 </svg>
@@ -135,11 +139,13 @@
                     <path d="M0,0 L25,0 C15,5 10,10 10,25 C10,10 5,5 0,0 Z M0,0 L0,25 C5,15 10,10 25,10 C10,10 5,5 0,0 Z"/>
                 </svg>
 
-                <!-- HEADER UNDANGAN -->
-                <div class="text-center space-y-2 sm:space-y-3 mb-8 sm:mb-10">
-                    <p class="font-serif italic text-parchment-sub text-xs sm:text-sm">Walimatul 'Ursy</p>
-                    <h2 id="main-title" class="font-script text-4xl sm:text-7xl text-gold-gradient py-1">Firdaus & Riska</h2>
-                    <div class="w-20 sm:w-24 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mt-2"></div>
+                <!-- HEADER UNDANGAN UTAMA (BISMILLAH + WALIMATUL 'URSY) -->
+                <div class="text-center space-y-1.5 sm:space-y-2 mb-8 sm:mb-10">
+                    <p class="font-arabic text-2xl sm:text-3xl text-gold-600 font-bold leading-relaxed">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                    <p class="font-serif italic font-bold text-gold-600 text-base sm:text-lg tracking-widest uppercase">Walimatul 'Ursy</p>
+                    <p class="font-sans text-[10px] sm:text-xs text-parchment-sub tracking-wider uppercase">Membangun Mahligai Rumah Tangga Yang Sakinah, Mawaddah, Warahmah</p>
+                    <h2 id="main-title" class="font-script text-4xl sm:text-7xl text-gold-gradient py-2">Firdaus & Riska</h2>
+                    <div class="w-20 sm:w-24 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mt-1"></div>
                 </div>
 
                 <!-- KUTIPAN AL-QURAN -->
@@ -181,24 +187,50 @@
 
                 </div>
 
-                <!-- ACARA (AKAD & RESEPSI ASLI BERSIH MEWAH) -->
-                <div class="bg-parchment-card/90 border border-[#D4AF37]/50 p-5 sm:p-6 rounded-lg my-8 sm:my-10 space-y-6 text-center">
-                    <div class="border-b border-[#D4AF37]/30 pb-5">
-                        <h4 class="font-serif text-base sm:text-lg font-bold text-gold-600 uppercase tracking-wider mb-1">Akad Nikah</h4>
-                        <p id="akad-date" class="font-sans text-xs font-semibold text-parchment-ink">Sabtu, 28 November 2026</p>
-                        <p id="akad-time" class="font-sans text-xs text-parchment-sub">08.00 WIB - Selesai</p>
-                        <p id="akad-location" class="font-sans text-xs italic text-parchment-sub mt-1.5">Masjid Agung Al-Azhar, Jakarta</p>
+                <!-- ACARA (AKAD & RESEPSI DIPISAH MENJADI 2 CARD MEWAH INDEPENDEN) -->
+                <div class="my-8 sm:my-10 space-y-4 sm:space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                        
+                        <!-- Card 1: Akad Nikah -->
+                        <div class="bg-parchment-card/90 border border-[#D4AF37]/60 p-5 rounded-lg text-center flex flex-col justify-between space-y-3 shadow-md hover:border-gold-500 transition">
+                            <div class="space-y-2">
+                                <div class="w-8 h-8 mx-auto text-gold-600">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                </div>
+                                <h4 class="font-serif text-base sm:text-lg font-bold text-gold-600 uppercase tracking-wider">Akad Nikah</h4>
+                                <div class="w-12 h-0.5 bg-gold-400/40 mx-auto"></div>
+                                <p id="akad-date" class="font-sans text-xs font-bold text-parchment-ink pt-1">Sabtu, 28 November 2026</p>
+                                <p id="akad-time" class="font-sans text-[11px] text-parchment-sub">08.00 WIB - Selesai</p>
+                                <p id="akad-location" class="font-sans text-[11px] italic text-parchment-sub pt-1">Masjid Agung Al-Azhar, Jakarta</p>
+                            </div>
+                            <button onclick="addToCalendar('Akad Nikah')" class="w-full py-1.5 border border-[#D4AF37] text-gold-600 hover:bg-gold-500 hover:text-white transition text-[10px] font-sans font-semibold rounded">
+                                📅 Ingatkan Kalender
+                            </button>
+                        </div>
+
+                        <!-- Card 2: Resepsi Pernikahan -->
+                        <div class="bg-parchment-card/90 border border-[#D4AF37]/60 p-5 rounded-lg text-center flex flex-col justify-between space-y-3 shadow-md hover:border-gold-500 transition">
+                            <div class="space-y-2">
+                                <div class="w-8 h-8 mx-auto text-gold-600">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                                </div>
+                                <h4 class="font-serif text-base sm:text-lg font-bold text-gold-600 uppercase tracking-wider">Resepsi Pernikahan</h4>
+                                <div class="w-12 h-0.5 bg-gold-400/40 mx-auto"></div>
+                                <p id="resepsi-date" class="font-sans text-xs font-bold text-parchment-ink pt-1">Sabtu, 28 November 2026</p>
+                                <p id="resepsi-time" class="font-sans text-[11px] text-parchment-sub">11.00 WIB - 14.00 WIB</p>
+                                <p id="resepsi-location" class="font-sans text-[11px] italic text-parchment-sub pt-1">Grand Ballroom Hotel Indonesia Kempinski</p>
+                            </div>
+                            <button onclick="addToCalendar('Resepsi Pernikahan')" class="w-full py-1.5 border border-[#D4AF37] text-gold-600 hover:bg-gold-500 hover:text-white transition text-[10px] font-sans font-semibold rounded">
+                                📅 Ingatkan Kalender
+                            </button>
+                        </div>
+
                     </div>
-                    <div>
-                        <h4 class="font-serif text-base sm:text-lg font-bold text-gold-600 uppercase tracking-wider mb-1">Resepsi Pernikahan</h4>
-                        <p id="resepsi-date" class="font-sans text-xs font-semibold text-parchment-ink">Sabtu, 28 November 2026</p>
-                        <p id="resepsi-time" class="font-sans text-xs text-parchment-sub">11.00 WIB - 14.00 WIB</p>
-                        <p id="resepsi-location" class="font-sans text-xs italic text-parchment-sub mt-1.5">Grand Ballroom Hotel Indonesia Kempinski</p>
-                    </div>
-                    
-                    <div class="pt-2">
-                        <a id="maps-btn" href="https://maps.google.com" target="_blank" class="inline-block px-6 py-2.5 bg-gradient-to-r from-gold-500 to-gold-600 text-white transition text-xs font-sans tracking-wider rounded shadow hover:opacity-90 font-semibold">
-                            LOKASI GOOGLE MAPS
+
+                    <!-- Tombol Petunjuk Lokasi Google Maps -->
+                    <div class="text-center pt-2">
+                        <a id="maps-btn" href="https://maps.google.com" target="_blank" class="inline-block px-6 py-2.5 bg-gradient-to-r from-gold-500 to-gold-600 text-white transition text-xs font-sans tracking-wider rounded shadow-md hover:opacity-90 font-semibold">
+                            📍 PETUNJUK LOKASI GOOGLE MAPS
                         </a>
                     </div>
                 </div>
@@ -228,7 +260,7 @@
 
                 <!-- FORM RSVP & REALTIME UCAPAN GOOGLE SHEETS -->
                 <div class="my-8 sm:my-10 pt-6 border-t border-[#D4AF37]/30">
-                    <h4 class="font-serif text-lg sm:text-xl font-bold text-center text-parchment-ink mb-4">Mohon Ucapan & Doa Restu</h4>
+                    <h4 class="font-serif text-lg sm:text-xl font-bold text-center text-parchment-ink mb-4">Pesan & Doa Restu</h4>
                     
                     <form onsubmit="submitRSVP(event)" class="space-y-3 sm:space-y-4 max-w-md mx-auto font-sans text-xs bg-parchment-card/60 p-4 sm:p-5 border border-[#D4AF37]/30 rounded">
                         <div>
@@ -371,7 +403,7 @@
 
             document.getElementById('maps-btn').href = configData.mapsUrl;
 
-            // Baca Parameter ?mengundang=
+            // Baca Parameter ?mengundang= atau ?to=
             const urlParams = new URLSearchParams(window.location.search);
             const guestName = urlParams.get('mengundang') || urlParams.get('to');
             if (guestName) {
@@ -379,7 +411,7 @@
                 document.getElementById('rsvp-name').value = guestName;
             }
 
-            // Mode Admin
+            // Mode Admin (?admin=true)
             if (urlParams.get('admin') === 'true') {
                 document.getElementById('admin-floating-btn').classList.remove('hidden');
             }
@@ -525,6 +557,16 @@
                 btn.disabled = false;
                 btn.innerText = "KIRIM UCAPAN";
             }
+        }
+
+        // Add to Google Calendar Template
+        function addToCalendar(type) {
+            const title = encodeURIComponent(`Pernikahan Firdaus & Riska (${type})`);
+            const details = encodeURIComponent(`Acara ${type} Pernikahan Muhamad Husnul Firdaus & Riska Larasati.`);
+            const location = encodeURIComponent(type === 'Akad Nikah' ? configData.akadLocation : configData.resepsiLocation);
+            
+            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`;
+            window.open(calendarUrl, '_blank');
         }
 
         // Modal Admin Generator
