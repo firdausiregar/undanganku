@@ -99,7 +99,7 @@
 
             <!-- BISMILLAH & HEADER COVER -->
             <p class="font-arabic text-xl sm:text-2xl text-gold-600 mb-1 leading-relaxed">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-            <p class="font-serif italic font-bold tracking-[0.2em] text-parchment-sub uppercase text-xs mb-1">Walimatul 'Ursy</p>
+            <!-- <p class="font-serif italic font-bold tracking-[0.2em] text-parchment-sub uppercase text-xs mb-1">Walimatul 'Ursy</p> -->
             <p class="font-serif tracking-[0.15em] text-gold-600 uppercase text-[10px] mb-2 font-semibold">Undangan Pernikahan</p>
             <h1 class="font-script text-4xl sm:text-6xl text-gold-gradient my-2 py-1" id="cover-title">Firdaus & Riska</h1>
             
@@ -260,7 +260,7 @@
 
                 <!-- FORM RSVP & REALTIME UCAPAN GOOGLE SHEETS -->
                 <div class="my-8 sm:my-10 pt-6 border-t border-[#D4AF37]/30">
-                    <h4 class="font-serif text-lg sm:text-xl font-bold text-center text-parchment-ink mb-4">Pesan & Doa Restu</h4>
+                    <h4 class="font-serif text-lg sm:text-xl font-bold text-center text-parchment-ink mb-4">Mohon Ucapan & Doa Restu</h4>
                     
                     <form onsubmit="submitRSVP(event)" class="space-y-3 sm:space-y-4 max-w-md mx-auto font-sans text-xs bg-parchment-card/60 p-4 sm:p-5 border border-[#D4AF37]/30 rounded">
                         <div>
@@ -327,7 +327,7 @@
             
             <div class="space-y-2 pt-2">
                 <button onclick="generateShortLink()" id="btn-shorten" class="w-full py-2 bg-stone-800 text-white rounded font-semibold hover:bg-stone-900 transition flex items-center justify-center gap-1">
-                    <span>✂️ Perpendek Link (is.gd)</span>
+                    <span>✂️ Perpendek Link (is.gd / TinyURL)</span>
                 </button>
                 <button onclick="copyGeneratedLink()" class="w-full py-2 bg-gradient-to-r from-gold-500 to-gold-600 text-white rounded font-semibold hover:opacity-90 transition">
                     📋 Salin Link Undangan
@@ -583,19 +583,41 @@
             return `${baseUrl}?mengundang=${encodeURIComponent(guestName)}`;
         }
 
+        // Pemendek Link dengan CORS Proxy & Penanganan Tes Lokal
         async function generateShortLink() {
             const btn = document.getElementById('btn-shorten');
             const resultDiv = document.getElementById('admin-link-result');
             const longUrl = getBaseLink();
 
+            // Cek jika berjalan di lingkungan lokal (file:// atau localhost)
+            if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                shortUrlCache = longUrl;
+                resultDiv.innerText = longUrl;
+                resultDiv.classList.remove('hidden');
+                navigator.clipboard.writeText(longUrl);
+
+                Swal.fire({
+                    title: 'Info Pemendek Link',
+                    text: 'Pemendek link online membutuhkan website yang sudah di-hosting (online). Untuk tes lokal di laptop, link lengkap telah disalin.',
+                    icon: 'info',
+                    confirmButtonColor: '#B8860B',
+                    customClass: { popup: 'swal-parchment-popup' }
+                });
+                return;
+            }
+
             btn.disabled = true;
-            btn.innerText = "Memproses URL...";
+            btn.innerText = "Memproses Link...";
 
             try {
-                const res = await fetch(`https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}`);
+                // Menggunakan Proxy AllOrigins untuk menghindari CORS Block
+                const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(`https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}`);
+                const res = await fetch(proxyUrl);
                 const data = await res.json();
-                if(data.shorturl) {
-                    shortUrlCache = data.shorturl;
+                const apiData = JSON.parse(data.contents);
+
+                if(apiData && apiData.shorturl) {
+                    shortUrlCache = apiData.shorturl;
                 } else {
                     shortUrlCache = longUrl;
                 }
@@ -606,16 +628,30 @@
             resultDiv.innerText = shortUrlCache;
             resultDiv.classList.remove('hidden');
             btn.disabled = false;
-            btn.innerText = "✂️ Perpendek Link (is.gd)";
+            btn.innerText = "✂️ Perpendek Link (is.gd / TinyURL)";
 
             navigator.clipboard.writeText(shortUrlCache);
-            alert('Link pendek berhasil disalin: ' + shortUrlCache);
+
+            Swal.fire({
+                title: 'Link Berhasil Dipendekkan!',
+                text: shortUrlCache,
+                icon: 'success',
+                confirmButtonColor: '#B8860B',
+                customClass: { popup: 'swal-parchment-popup' }
+            });
         }
 
         function copyGeneratedLink() {
             const link = shortUrlCache || getBaseLink();
             navigator.clipboard.writeText(link);
-            alert('Link berhasil disalin:\n' + link);
+            
+            Swal.fire({
+                title: 'Link Disalin!',
+                text: link,
+                icon: 'success',
+                confirmButtonColor: '#B8860B',
+                customClass: { popup: 'swal-parchment-popup' }
+            });
         }
 
         function copyWAFormat() {
@@ -625,7 +661,14 @@
             const waText = `Kepada Yth. ${guestName}\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:\n\n*Firdaus & Riska*\n\nDetail acara dan konfirmasi kehadiran dapat diakses melalui tautan undangan berikut:\n${link}\n\nMerupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.\n\nTerima kasih.`;
 
             navigator.clipboard.writeText(waText);
-            alert('Format pesan WhatsApp berhasil disalin!');
+
+            Swal.fire({
+                title: 'Pesan WhatsApp Disalin!',
+                text: 'Format undangan pesan siap dikirim ke WhatsApp.',
+                icon: 'success',
+                confirmButtonColor: '#B8860B',
+                customClass: { popup: 'swal-parchment-popup' }
+            });
         }
 
         function escapeHtml(text) {
