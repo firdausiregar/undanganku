@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Kertas Mewah - Galih & Ratna</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Kaligrafi & Serif Klasik) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        script: ['"Alex Brush"', 'cursive'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        cinzel: ['"Cinzel Decorative"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#fffdf0',
+                            100: '#fef1aa',
+                            200: '#f7e58a',
+                            300: '#e6c875',
+                            400: '#d4af37',
+                            500: '#b8860b',
+                            600: '#996515',
+                            700: '#7a4e0a',
+                            800: '#5c3905',
+                            900: '#3d2402',
+                        },
+                        parchment: {
+                            50: '#FFFDF9',
+                            100: '#FAF6EE',
+                            200: '#F4EFE3',
+                            300: '#E8DFC9',
+                            400: '#D5C7A7',
+                            700: '#60523C',
+                            800: '#3D3526',
+                            900: '#2C261B',
+                        },
+                        wax: '#7a1923',
+                        waxDark: '#4a0d13',
+                        paperBg: '#EFE9DF'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Tekstur Serat Kertas Parchment Vintage Hangat */
+        .bg-parchment-texture {
+            background-color: #F6F1E7;
+            background-image: 
+                radial-gradient(#b8860b 0.2px, transparent 0.2px), 
+                radial-gradient(#2c261b 0.2px, #F6F1E7 0.2px);
+            background-size: 16px 16px;
+            background-position: 0 0, 8px 8px;
+        }
+
+        /* Overlay Noise Serat Kertas Organik */
+        .paper-grain {
+            position: relative;
+        }
+        .paper-grain::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Garis Lipatan Kertas (Paper Crease) */
+        .paper-crease-v {
+            position: relative;
+        }
+        .paper-crease-v::after {
+            content: "";
+            position: absolute;
+            top: 0; bottom: 0; left: 50%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(184, 134, 11, 0.25), rgba(96, 82, 60, 0.1), rgba(184, 134, 11, 0.25), transparent);
+            pointer-events: none;
+        }
+
+        /* Pinggiran Kertas Gerigi / Deckle Edge Simulasi Clip-Path */
+        .deckle-edge {
+            clip-path: polygon(
+                0% 0.5%, 3% 0%, 7% 0.6%, 12% 0.1%, 18% 0.5%, 24% 0%, 30% 0.6%, 36% 0.1%, 42% 0.5%, 48% 0%, 54% 0.6%, 60% 0.1%, 66% 0.5%, 72% 0%, 78% 0.6%, 84% 0.1%, 90% 0.5%, 96% 0%, 100% 0.5%,
+                99.6% 15%, 100% 30%, 99.5% 45%, 100% 60%, 99.6% 75%, 100% 90%, 99.5% 99.5%,
+                95% 100%, 89% 99.4%, 83% 100%, 77% 99.5%, 71% 100%, 65% 99.4%, 59% 100%, 53% 99.5%, 47% 100%, 41% 99.4%, 35% 100%, 29% 99.5%, 23% 100%, 17% 99.4%, 11% 100%, 5% 99.5%, 0% 100%,
+                0.5% 85%, 0% 70%, 0.4% 55%, 0% 40%, 0.5% 25%, 0% 10%
+            );
+        }
+
+        /* Gradasi Emas Metallic Foil */
+        .text-gold-foil {
+            background: linear-gradient(135deg, #7a5408 0%, #d4af37 25%, #fef1aa 50%, #b8860b 75%, #5c3905 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Bayangan 3D Timbul Kertas Fisik Lembut */
+        .paper-shadow-3d {
+            box-shadow: 
+                0 20px 50px -10px rgba(96, 82, 60, 0.25),
+                0 0 25px rgba(212, 175, 55, 0.15),
+                inset 0 0 40px rgba(184, 134, 11, 0.06);
+        }
+
+        /* Royal Frame Foto Pengantin */
+        .royal-photo-frame {
+            position: relative;
+            padding: 6px;
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            border-radius: 9999px;
+            box-shadow: 0 8px 20px rgba(96, 82, 60, 0.2), inset 0 2px 4px rgba(255,255,255,0.9);
+        }
+
+        /* Scroll Reveal Effect */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar Warm Tone */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #EFE9DF; }
+        ::-webkit-scrollbar-thumb { background: #b8860b; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-paperBg text-parchment-900 font-sans antialiased overflow-x-hidden overflow-y-hidden" id="main-body">
+
+    <!-- HIDDEN YOUTUBE PLAYER CONTAINER (API integration - t_L7EaDtVO4) -->
+    <div id="yt-player-container" class="absolute -top-[9999px] -left-[9999px] pointer-events-none opacity-0">
+        <div id="youtube-player"></div>
+    </div>
+
+    <!-- TOMBOL EDIT MODAL (HANYA MUNCUL JIKA URL MENGANDUNG ?admin=true) -->
+    <div id="admin-btn-wrapper" class="fixed top-5 right-5 z-40 hidden">
+        <button onclick="openCustomizerModal()" class="flex items-center gap-2 px-4 py-2.5 bg-parchment-100 border-2 border-gold-500 text-gold-800 rounded-full shadow-xl hover:bg-gold-600 hover:text-white transition text-xs font-semibold backdrop-blur-md">
+            <span>⚙️ Edit Teks Undangan</span>
+        </button>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 sm:left-auto sm:right-5 sm:translate-x-0 z-50 transform translate-y-[-150%] sm:translate-y-0 sm:translate-x-full transition-transform duration-300 ease-in-out bg-parchment-100 border border-gold-500 text-gold-900 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <svg class="w-5 h-5 text-gold-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span id="toast-message" class="text-xs font-medium">Notifikasi</span>
+    </div>
+
+
+    <!-- 1. COVER AMPLOP KERTAS PARCHMENT 3D & WAX SEAL -->
+    <div id="envelope-wrapper" class="fixed inset-0 z-50 flex items-center justify-center bg-paperBg/95 backdrop-blur-md p-4 transition-all duration-1000">
+        
+        <!-- Physical Parchment Envelope Card -->
+        <div class="relative max-w-md w-full bg-parchment-texture paper-grain deckle-edge border-4 border-gold-500/50 paper-shadow-3d p-6 sm:p-10 text-center">
+            
+            <!-- Corner Filigree Ornaments -->
+            <div class="absolute top-3 left-3 text-gold-600 w-10 h-10 opacity-75">
+                <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L40,0 C30,10 20,20 20,40 C20,20 10,10 0,0 Z M0,0 L0,40 C10,30 20,20 40,20 C20,20 10,10 0,0 Z"/></svg>
+            </div>
+            <div class="absolute top-3 right-3 text-gold-600 w-10 h-10 opacity-75 rotate-90">
+                <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L40,0 C30,10 20,20 20,40 C20,20 10,10 0,0 Z M0,0 L0,40 C10,30 20,20 40,20 C20,20 10,10 0,0 Z"/></svg>
+            </div>
+
+            <p class="font-cinzel text-xs tracking-[0.3em] uppercase text-gold-700 mb-2 font-bold">Undangan Pernikahan</p>
+            <h1 id="cover-couple-names" class="font-script text-5xl sm:text-6xl text-gold-foil my-3 py-1">Galih & Ratna</h1>
+            
+            <div class="flex items-center justify-center gap-3 my-3">
+                <div class="h-[1px] w-12 bg-gradient-to-r from-transparent to-gold-500"></div>
+                <span id="cover-date" class="text-gold-700 text-xs font-serif tracking-widest font-bold">28 • 11 • 2026</span>
+                <div class="h-[1px] w-12 bg-gradient-to-l from-transparent to-gold-500"></div>
+            </div>
+
+            <!-- LABEL KEPADA YTH (DYNAMIC GUEST NAME FROM URL) -->
+            <div class="my-6 bg-parchment-200/90 border border-gold-400/60 rounded-sm p-4 shadow-inner">
+                <p class="font-sans text-[11px] uppercase tracking-wider text-parchment-700 mb-1 font-medium">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <h2 id="guest-name-display" class="font-serif text-xl sm:text-2xl font-bold text-gold-800 capitalize">Tamu Undangan</h2>
+                <p class="text-[10px] text-parchment-700 italic mt-1">Di Tempat</p>
+            </div>
+
+            <!-- WAX SEAL STAMP BUTTON (STEMPEL LILIN 3D UNTUK OTOMATIS PLAY AUDIO) -->
+            <div class="relative flex flex-col items-center justify-center mt-6">
+                <button onclick="openInvitation()" class="group relative focus:outline-none transition-transform active:scale-95">
+                    <!-- Wax Seal Body -->
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-br from-red-800 via-wax to-waxDark border-4 border-amber-300/90 shadow-[0_10px_20px_rgba(96,82,60,0.4),inset_0_2px_6px_rgba(255,255,255,0.4)] flex items-center justify-center transform group-hover:scale-105 transition duration-300">
+                        <div class="w-14 h-14 rounded-full border border-amber-200/60 flex items-center justify-center text-amber-200 font-script text-2xl font-bold tracking-widest shadow-inner">
+                            G&R
+                        </div>
+                    </div>
+                    <!-- Pulse Glow Effect -->
+                    <span class="absolute inset-0 rounded-full bg-red-600/30 animate-ping pointer-events-none"></span>
+                </button>
+                <span class="mt-3 font-serif italic text-xs text-gold-800 font-bold tracking-wider">Ketuk Stempel Lilin Untuk Membuka</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 2. UTAMA: KERTAS UNDANGAN EKSKLUSIF (WARM VINTAGE PARCHMENT) -->
+    <main class="min-h-screen py-6 sm:py-12 px-3 sm:px-6 flex justify-center items-center bg-paperBg">
+        
+        <!-- Physical Parchment Container Card -->
+        <div class="bg-parchment-texture paper-grain paper-crease-v deckle-edge max-w-3xl w-full p-4 sm:p-14 border-[10px] sm:border-[16px] border-double border-gold-600/50 paper-shadow-3d relative my-4 overflow-hidden">
+            
+            <!-- Frame Emas Ornamen Dalam -->
+            <div class="border-2 border-gold-500/70 p-4 sm:p-10 relative">
+
+                <!-- Ornamen Ukiran Emas Sudut (SVG Filigree) -->
+                <svg class="absolute -top-3.5 -left-3.5 w-12 h-12 text-gold-600" viewBox="0 0 50 50" fill="currentColor">
+                    <path d="M0,0 L25,0 C15,5 10,10 10,25 C10,10 5,5 0,0 Z M0,0 L0,25 C5,15 10,10 25,10 C10,10 5,5 0,0 Z"/>
+                </svg>
+                <svg class="absolute -top-3.5 -right-3.5 w-12 h-12 text-gold-600 rotate-90" viewBox="0 0 50 50" fill="currentColor">
+                    <path d="M0,0 L25,0 C15,5 10,10 10,25 C10,10 5,5 0,0 Z M0,0 L0,25 C5,15 10,10 25,10 C10,10 5,5 0,0 Z"/>
+                </svg>
+                <svg class="absolute -bottom-3.5 -left-3.5 w-12 h-12 text-gold-600 -rotate-90" viewBox="0 0 50 50" fill="currentColor">
+                    <path d="M0,0 L25,0 C15,5 10,10 10,25 C10,10 5,5 0,0 Z M0,0 L0,25 C5,15 10,10 25,10 C10,10 5,5 0,0 Z"/>
+                </svg>
+                <svg class="absolute -bottom-3.5 -right-3.5 w-12 h-12 text-gold-600 rotate-180" viewBox="0 0 50 50" fill="currentColor">
+                    <path d="M0,0 L25,0 C15,5 10,10 10,25 C10,10 5,5 0,0 Z M0,0 L0,25 C5,15 10,10 25,10 C10,10 5,5 0,0 Z"/>
+                </svg>
+
+
+                <!-- HEADER UTAMA -->
+                <section class="text-center space-y-4 mb-14 reveal">
+                    <!-- Medali Monogram Emas Atas -->
+                    <div class="w-16 h-16 mx-auto rounded-full bg-parchment-200 border-2 border-gold-500 shadow-inner flex items-center justify-center text-gold-700 font-script text-3xl font-bold">
+                        G&R
+                    </div>
+                    
+                    <p class="font-serif italic text-parchment-800 text-sm sm:text-base">Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
+                    <p class="font-cinzel text-xs tracking-[0.3em] uppercase text-gold-700 font-bold">Undangan Pernikahan</p>
+                    
+                    <h1 id="main-couple-names" class="font-script text-6xl sm:text-8xl text-gold-foil py-2">Galih & Ratna</h1>
+                    
+                    <p id="main-event-date" class="font-serif tracking-widest text-xs sm:text-sm text-parchment-900 uppercase font-bold">
+                        Sabtu, 28 November 2026 • Jakarta
+                    </p>
+                    
+                    <div class="w-36 h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto mt-4"></div>
+                </section>
+
+
+                <!-- KUTIPAN SUCI -->
+                <section class="my-14 text-center px-2 sm:px-8 reveal">
+                    <div class="bg-parchment-200/80 border border-gold-400/60 p-6 sm:p-8 rounded-sm relative shadow-inner">
+                        <p class="font-serif italic text-sm sm:text-base text-parchment-900 leading-relaxed">
+                            "Dan di antara tanda-tanda (kebesaran-Nya) ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+                        </p>
+                        <span class="block font-cinzel text-xs text-gold-700 tracking-wider mt-3 font-bold">— QS. AR-RUM: 21 —</span>
+                    </div>
+                </section>
+
+
+                <!-- PROFIL MEMPALAI (CARD SAMA TINGGI PRESI) -->
+                <section class="my-16 reveal">
+                    <div class="text-center mb-10">
+                        <h2 class="font-cinzel text-xl sm:text-2xl font-bold text-parchment-900 tracking-wider">Pasangan Mempalai</h2>
+                        <div class="w-16 h-0.5 bg-gold-500 mx-auto mt-2"></div>
+                    </div>
+
+                    <!-- GRID LAYOUT FLEX-STRETCH AGAR TINGGI CARD SAMAA PRESISI -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                        
+                        <!-- Groom (Pengantin Pria) Card -->
+                        <div class="bg-parchment-100/90 border border-gold-400/60 p-6 sm:p-8 rounded-sm shadow-sm h-full flex flex-col justify-between items-center text-center">
+                            <div class="space-y-4 w-full flex flex-col items-center">
+                                <!-- Photo Frame Gold -->
+                                <div class="w-36 h-36 royal-photo-frame">
+                                    <img id="groom-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" alt="Galih Pratama" class="w-full h-full object-cover rounded-full border-2 border-amber-100">
+                                </div>
+                                <h3 id="groom-name" class="font-serif text-2xl font-bold text-gold-800">Galih Pratama, S.T.</h3>
+                            </div>
+                            <p id="groom-parents" class="font-serif text-xs text-parchment-800 leading-relaxed mt-4">Putra Pertama dari<br><span class="font-semibold text-parchment-900">Bpk. H. Bambang Subagyo</span><br>& <span class="font-semibold text-parchment-900">Ibu Hj. Siti Rahmah</span></p>
+                        </div>
+
+                        <!-- Bride (Pengantin Wanita) Card -->
+                        <div class="bg-parchment-100/90 border border-gold-400/60 p-6 sm:p-8 rounded-sm shadow-sm h-full flex flex-col justify-between items-center text-center">
+                            <div class="space-y-4 w-full flex flex-col items-center">
+                                <!-- Photo Frame Gold -->
+                                <div class="w-36 h-36 royal-photo-frame">
+                                    <img id="bride-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80" alt="Ratna Larasati" class="w-full h-full object-cover rounded-full border-2 border-amber-100">
+                                </div>
+                                <h3 id="bride-name" class="font-serif text-2xl font-bold text-gold-800">Ratna Larasati, S.Ked</h3>
+                            </div>
+                            <p id="bride-parents" class="font-serif text-xs text-parchment-800 leading-relaxed mt-4">Putri Kedua dari<br><span class="font-semibold text-parchment-900">Bpk. Dr. Ahmad Wijaya</span><br>& <span class="font-semibold text-parchment-900">Ibu Hj. Endang Sulastri</span></p>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <!-- DETAIL ACARA & COUNTDOWN TIMER -->
+                <section class="my-16 reveal">
+                    <div class="bg-parchment-200/90 border border-gold-500/70 p-6 sm:p-10 rounded-sm shadow-md">
+                        <h2 class="font-cinzel text-xl sm:text-2xl font-bold text-center text-parchment-900 mb-8 tracking-wider">Waktu & Lokasi Acara</h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-gold-400/50">
+                            
+                            <!-- Akad Nikah -->
+                            <div class="text-center pb-6 md:pb-0 md:pr-4">
+                                <div class="w-10 h-10 mx-auto mb-3 text-gold-700">
+                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L1 12h3v9h6v-6h4v6h6v-9h3L12 2zm0 2.84L18 10v9h-2v-6H8v6H6v-9l6-5.16z"/></svg>
+                                </div>
+                                <h3 class="font-cinzel text-lg font-bold text-gold-800 uppercase tracking-wide">Akad Nikah</h3>
+                                <p id="akad-date" class="font-sans text-xs font-bold text-parchment-900 mt-2">Sabtu, 28 November 2026</p>
+                                <p id="akad-time" class="font-sans text-xs text-parchment-800">Pukul 08:00 WIB - Selesai</p>
+                                <p id="akad-venue" class="font-serif text-xs italic text-parchment-900 mt-3 font-semibold">Masjid Agung Al-Azhar, Kebayoran Baru, Jakarta Selatan</p>
+                            </div>
+
+                            <!-- Resepsi -->
+                            <div class="text-center pt-6 md:pt-0 md:pl-4">
+                                <div class="w-10 h-10 mx-auto mb-3 text-gold-700">
+                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 8.75L4.5 7.5 12 3.75l7.5 3.75-7.5 3.75zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                </div>
+                                <h3 class="font-cinzel text-lg font-bold text-gold-800 uppercase tracking-wide">Resepsi Pernikahan</h3>
+                                <p id="resepsi-date" class="font-sans text-xs font-bold text-parchment-900 mt-2">Sabtu, 28 November 2026</p>
+                                <p id="resepsi-time" class="font-sans text-xs text-parchment-800">Pukul 11:00 WIB - 15:00 WIB</p>
+                                <p id="resepsi-venue" class="font-serif text-xs italic text-parchment-900 mt-3 font-semibold">Grand Ballroom Hotel Indonesia Kempinski, Jakarta Pusat</p>
+                            </div>
+
+                        </div>
+
+                        <!-- Action Buttons (Maps & Calendar) -->
+                        <div class="mt-8 flex flex-wrap justify-center gap-4 border-t border-gold-400/50 pt-6">
+                            <a id="maps-link" href="https://maps.google.com" target="_blank" class="px-5 py-2.5 bg-gold-700 hover:bg-gold-800 text-white transition rounded text-xs font-semibold flex items-center gap-2 shadow">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                Buka Google Maps
+                            </a>
+                            <button onclick="addToGoogleCalendar()" class="px-5 py-2.5 border border-gold-600 text-gold-800 hover:bg-gold-600 hover:text-white transition rounded text-xs font-semibold flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                Simpan Ke Kalender
+                            </button>
+                        </div>
+
+                        <!-- Countdown Timer Realtime -->
+                        <div class="mt-10 text-center">
+                            <p class="font-serif italic text-parchment-800 text-xs sm:text-sm mb-4">Menghitung Hari Menuju Acara Bahagia</p>
+                            <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto">
+                                <div class="bg-parchment-50 border border-gold-400 p-2 rounded shadow-sm">
+                                    <span id="cd-days" class="font-serif text-xl sm:text-2xl font-bold text-gold-800 block">00</span>
+                                    <span class="text-[9px] text-parchment-700 uppercase font-semibold">Hari</span>
+                                </div>
+                                <div class="bg-parchment-50 border border-gold-400 p-2 rounded shadow-sm">
+                                    <span id="cd-hours" class="font-serif text-xl sm:text-2xl font-bold text-gold-800 block">00</span>
+                                    <span class="text-[9px] text-parchment-700 uppercase font-semibold">Jam</span>
+                                </div>
+                                <div class="bg-parchment-50 border border-gold-400 p-2 rounded shadow-sm">
+                                    <span id="cd-minutes" class="font-serif text-xl sm:text-2xl font-bold text-gold-800 block">00</span>
+                                    <span class="text-[9px] text-parchment-700 uppercase font-semibold">Menit</span>
+                                </div>
+                                <div class="bg-parchment-50 border border-gold-400 p-2 rounded shadow-sm">
+                                    <span id="cd-seconds" class="font-serif text-xl sm:text-2xl font-bold text-gold-800 block">00</span>
+                                    <span class="text-[9px] text-parchment-700 uppercase font-semibold">Detik</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <!-- FORM RSVP & PAPAN UCAPAN LIVE GOOGLE SHEETS SPREADSHEET -->
+                <section class="my-16 reveal">
+                    <div class="text-center mb-8">
+                        <h2 class="font-cinzel text-xl sm:text-2xl font-bold text-parchment-900">Konfirmasi Kehadiran & Doa Restu</h2>
+                        <div class="w-16 h-0.5 bg-gold-500 mx-auto mt-2"></div>
+                    </div>
+
+                    <!-- Form RSVP -->
+                    <form onsubmit="handleRSVPSubmit(event)" class="bg-parchment-200/90 border border-gold-400/80 p-6 sm:p-8 rounded-sm shadow-sm max-w-lg mx-auto space-y-4">
+                        <div>
+                            <label class="block font-sans text-xs font-bold text-parchment-900 mb-1">Nama Lengkap</label>
+                            <input type="text" id="rsvp-name" required placeholder="Masukkan Nama Anda..." class="w-full px-3 py-2 bg-parchment-50 border border-gold-300 rounded text-xs focus:outline-none focus:border-gold-600">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block font-sans text-xs font-bold text-parchment-900 mb-1">Konfirmasi Kehadiran</label>
+                                <select id="rsvp-status" class="w-full px-3 py-2 bg-parchment-50 border border-gold-300 rounded text-xs focus:outline-none focus:border-gold-600">
+                                    <option value="Hadir">Hadir</option>
+                                    <option value="Tidak Hadir">Tidak Hadir</option>
+                                    <option value="Ragu-ragu">Masih Ragu-ragu</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-sans text-xs font-bold text-parchment-900 mb-1">Jumlah Tamu</label>
+                                <select id="rsvp-guests" class="w-full px-3 py-2 bg-parchment-50 border border-gold-300 rounded text-xs focus:outline-none focus:border-gold-600">
+                                    <option value="1 Orang">1 Orang</option>
+                                    <option value="2 Orang">2 Orang</option>
+                                    <option value="3+ Orang">3+ Orang</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-sans text-xs font-bold text-parchment-900 mb-1">Pesan & Doa Restu</label>
+                            <textarea id="rsvp-message" rows="3" required placeholder="Tuliskan ucapan dan doa hangat..." class="w-full px-3 py-2 bg-parchment-50 border border-gold-300 rounded text-xs focus:outline-none focus:border-gold-600"></textarea>
+                        </div>
+
+                        <button type="submit" id="rsvp-submit-btn" class="w-full py-3 bg-gold-700 hover:bg-gold-800 text-white font-semibold text-xs tracking-wider uppercase rounded shadow transition flex items-center justify-center gap-2">
+                            <span>Kirim Ucapan & Konfirmasi</span>
+                        </button>
+                    </form>
+
+                    <!-- List Ucapan Realtime -->
+                    <div class="mt-10 max-w-lg mx-auto">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-serif text-lg font-bold text-parchment-900">Doa Restu dari Tamu (<span id="wish-count">0</span>)</h4>
+                            <button onclick="loadWishesData()" class="text-[11px] text-gold-700 hover:underline flex items-center gap-1 font-semibold">
+                                🔄 Segarkan Ucapan
+                            </button>
+                        </div>
+                        <div id="wishes-list" class="space-y-3 max-h-80 overflow-y-auto pr-1">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer class="text-center pt-10 border-t border-gold-400/50 mt-16 space-y-4 reveal">
+                    <p class="font-serif italic text-xs sm:text-sm text-parchment-800">
+                        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+                    </p>
+                    <p class="font-cinzel text-xs text-gold-700 uppercase tracking-widest font-bold">Kami Yang Berbahagia</p>
+                    <h3 id="footer-couple-names" class="font-script text-4xl text-gold-foil">Galih & Ratna</h3>
+                    <p class="font-sans text-[10px] text-parchment-700 pt-4">© 2026 Undangan Pernikahan Kertas Mewah Digital.</p>
+                </footer>
+
+            </div>
+        </div>
+    </main>
+
+
+    <!-- MODAL CUSTOMIZER (EDIT UNDANGAN REALTIME - HANYA ADMIN VIA ?admin=true) -->
+    <div id="customizer-modal" class="fixed inset-0 z-50 bg-paperBg/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-parchment-100 border-2 border-gold-500 text-parchment-900 p-6 rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative shadow-2xl space-y-4 text-xs font-sans">
+            <button onclick="closeCustomizerModal()" class="absolute top-3 right-4 text-gold-800 text-2xl font-bold hover:text-gold-600">&times;</button>
+            
+            <h3 class="font-cinzel text-base font-bold text-gold-800 border-b border-gold-400/40 pb-2">⚙️ Panel Admin / Edit Undangan</h3>
+            
+            <!-- Link Copy Generator -->
+            <div class="bg-parchment-200 p-3 rounded border border-gold-400 space-y-2">
+                <label class="block font-bold text-gold-800">Buat Link Khusus Nama Tamu (`?to=...`):</label>
+                <div class="flex gap-2">
+                    <input type="text" id="input-guest-name" class="w-full px-2.5 py-1.5 bg-parchment-50 border border-gold-300 rounded text-parchment-900" placeholder="Contoh: Bapak Susilo">
+                    <button onclick="copyGuestLink()" class="px-3 py-1.5 bg-gold-700 text-white font-bold rounded hover:bg-gold-800 whitespace-nowrap">Salin Link Tamu</button>
+                </div>
+            </div>
+
+            <!-- Form Google Sheets Endpoint -->
+            <div class="bg-parchment-200 p-3 rounded border border-gold-400 space-y-2">
+                <label class="block font-bold text-gold-800">URL Google Apps Script (Spreadsheet Web App):</label>
+                <input type="text" id="input-script-url" class="w-full px-2.5 py-1.5 bg-parchment-50 border border-gold-300 rounded text-parchment-900 font-mono text-[10px]" placeholder="https://script.google.com/macros/s/.../exec">
+                <p class="text-[10px] text-parchment-700 italic">Masukkan URL Web App dari Google Apps Script untuk menyimpan ucapan secara riil ke Google Sheets.</p>
+            </div>
+
+            <!-- Form Edit Data Pengantin -->
+            <div class="space-y-3 border-t border-gold-300 pt-3">
+                <h4 class="font-bold text-gold-800">Data Mempalai & Foto:</h4>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-parchment-700 mb-0.5">Nama Pria:</label>
+                        <input type="text" id="input-groom-name" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                    </div>
+                    <div>
+                        <label class="block text-parchment-700 mb-0.5">Nama Wanita:</label>
+                        <input type="text" id="input-bride-name" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-parchment-700 mb-0.5">URL Foto Pria:</label>
+                    <input type="text" id="input-groom-photo" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                </div>
+                <div>
+                    <label class="block text-parchment-700 mb-0.5">URL Foto Wanita:</label>
+                    <input type="text" id="input-bride-photo" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                </div>
+                <div>
+                    <label class="block text-parchment-700 mb-0.5">Orang Tua Pria:</label>
+                    <input type="text" id="input-groom-parents" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                </div>
+                <div>
+                    <label class="block text-parchment-700 mb-0.5">Orang Tua Wanita:</label>
+                    <input type="text" id="input-bride-parents" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                </div>
+            </div>
+
+            <!-- Form Edit Acara -->
+            <div class="space-y-3 border-t border-gold-300 pt-3">
+                <h4 class="font-bold text-gold-800">Waktu & Lokasi Acara:</h4>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-parchment-700 mb-0.5">Tanggal Acara:</label>
+                        <input type="text" id="input-event-date" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                    </div>
+                    <div>
+                        <label class="block text-parchment-700 mb-0.5">Jam Akad:</label>
+                        <input type="text" id="input-akad-time" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-parchment-700 mb-0.5">Tempat Akad:</label>
+                    <input type="text" id="input-akad-venue" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                </div>
+                <div>
+                    <label class="block text-parchment-700 mb-0.5">Tempat Resepsi:</label>
+                    <input type="text" id="input-resepsi-venue" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                </div>
+                <div>
+                    <label class="block text-parchment-700 mb-0.5">Link Google Maps:</label>
+                    <input type="text" id="input-maps-url" class="w-full px-2 py-1 bg-parchment-50 border border-gold-300 rounded text-parchment-900">
+                </div>
+            </div>
+
+            <button onclick="applyCustomizerData()" class="w-full py-2.5 bg-gold-700 hover:bg-gold-800 text-white font-bold rounded shadow transition text-xs tracking-wider uppercase mt-4">
+                Terapkan Perubahan Ke Undangan
+            </button>
+
+            <!-- Petunjuk Setup Google Sheets -->
+            <div class="border-t border-gold-300 pt-3">
+                <p class="font-bold text-gold-800 mb-1">📘 Petunjuk integrasi Google Sheets Spreadsheet:</p>
+                <ol class="list-decimal list-inside text-[10px] text-parchment-800 space-y-1">
+                    <li>Buat Spreadsheet baru di Google Drive.</li>
+                    <li>Klik <b>Extensions > Apps Script</b>.</li>
+                    <li>Paste kode Apps Script di bawah ini lalu klik <b>Deploy > New deployment > Web app</b> (Set "Who has access" ke <b>Anyone</b>).</li>
+                    <li>Copy URL Web App tersebut dan paste ke kolom URL di atas.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT ENGINE & YOUTUBE API INTEGRATION -->
+    <script>
+        // -------------------------------------------------------------
+        // DATA MODEL DEFAULT
+        // -------------------------------------------------------------
+        let invData = {
+            guestName: "Bapak / Ibu / Saudara / i",
+            groomName: "Galih Pratama, S.T.",
+            groomPhoto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
+            groomParents: "Putra Pertama dari Bpk. H. Bambang Subagyo & Ibu Hj. Siti Rahmah",
+            brideName: "Ratna Larasati, S.Ked",
+            bridePhoto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+            brideParents: "Putri Kedua dari Bpk. Dr. Ahmad Wijaya & Ibu Hj. Endang Sulastri",
+            eventDateText: "Sabtu, 28 November 2026",
+            akadTime: "Pukul 08:00 WIB - Selesai",
+            akadVenue: "Masjid Agung Al-Azhar, Kebayoran Baru, Jakarta Selatan",
+            resepsiTime: "Pukul 11:00 WIB - 15:00 WIB",
+            resepsiVenue: "Grand Ballroom Hotel Indonesia Kempinski, Jakarta Pusat",
+            mapsUrl: "https://maps.google.com",
+            scriptUrl: "", // URL Web App Google Apps Script jika ada
+            targetDateISO: "2026-11-28T08:00:00"
+        };
+
+        // -------------------------------------------------------------
+        // YOUTUBE IFRAME API INTEGRATION (BACKGROUND AUDIO: t_L7EaDtVO4)
+        // -------------------------------------------------------------
+        let ytPlayer;
+
+        // Load YouTube API
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            ytPlayer = new YT.Player('youtube-player', {
+                height: '0',
+                width: '0',
+                videoId: 't_L7EaDtVO4',
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 0,
+                    'loop': 1,
+                    'playlist': 't_L7EaDtVO4'
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            ytPlayer.setVolume(85);
+        }
+
+        function playYouTubeAudio() {
+            if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+                ytPlayer.playVideo();
+            }
+        }
+
+        // -------------------------------------------------------------
+        // INIT & URL PARAMS BINDING
+        // -------------------------------------------------------------
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Read Guest Name from ?to=...
+            const guest = urlParams.get('to') || urlParams.get('guest') || urlParams.get('n');
+            if (guest) {
+                invData.guestName = decodeURIComponent(guest).replace(/\+/g, ' ');
+            }
+
+            // Read stored scriptUrl if available
+            const savedScriptUrl = localStorage.getItem('wedding_script_url');
+            if (savedScriptUrl) {
+                invData.scriptUrl = savedScriptUrl;
+            }
+
+            // Check if Admin Mode ?admin=true
+            const isAdmin = urlParams.get('admin') === 'true';
+            if (isAdmin) {
+                const adminBtn = document.getElementById('admin-btn-wrapper');
+                if (adminBtn) adminBtn.classList.remove('hidden');
+            }
+
+            renderDataToDOM();
+            initCustomizerInputs();
+            loadWishesData();
+            startCountdown();
+            initScrollReveal();
+        });
+
+        function renderDataToDOM() {
+            const coupleShort = `${invData.groomName.split(' ')[0]} & ${invData.brideName.split(' ')[0]}`;
+
+            document.getElementById('guest-name-display').innerText = invData.guestName;
+            document.getElementById('cover-couple-names').innerText = coupleShort;
+            document.getElementById('main-couple-names').innerText = coupleShort;
+            document.getElementById('footer-couple-names').innerText = coupleShort;
+
+            document.getElementById('groom-name').innerText = invData.groomName;
+            document.getElementById('groom-photo').src = invData.groomPhoto;
+            document.getElementById('groom-parents').innerHTML = invData.groomParents;
+
+            document.getElementById('bride-name').innerText = invData.brideName;
+            document.getElementById('bride-photo').src = invData.bridePhoto;
+            document.getElementById('bride-parents').innerHTML = invData.brideParents;
+
+            document.getElementById('main-event-date').innerText = `${invData.eventDateText} • Jakarta`;
+            document.getElementById('akad-date').innerText = invData.eventDateText;
+            document.getElementById('akad-time').innerText = invData.akadTime;
+            document.getElementById('akad-venue').innerText = invData.akadVenue;
+
+            document.getElementById('resepsi-date').innerText = invData.eventDateText;
+            document.getElementById('resepsi-time').innerText = invData.resepsiTime;
+            document.getElementById('resepsi-venue').innerText = invData.resepsiVenue;
+
+            document.getElementById('maps-link').href = invData.mapsUrl;
+            document.getElementById('rsvp-name').value = invData.guestName !== "Bapak / Ibu / Saudara / i" ? invData.guestName : "";
+        }
+
+        // -------------------------------------------------------------
+        // UNLOCK ENVELOPE COVER & AUTOMATIC AUDIO PLAY
+        // -------------------------------------------------------------
+        function openInvitation() {
+            const envelopeWrapper = document.getElementById('envelope-wrapper');
+            const mainBody = document.getElementById('main-body');
+
+            // Play Music Automatically via User Gesture
+            playYouTubeAudio();
+
+            // Fade Cover
+            envelopeWrapper.classList.add('opacity-0', 'pointer-events-none');
+            mainBody.classList.remove('overflow-y-hidden');
+
+            setTimeout(() => {
+                envelopeWrapper.style.display = 'none';
+            }, 1000);
+
+            showToast("Selamat Datang di Undangan Pernikahan Galih & Ratna");
+        }
+
+        // -------------------------------------------------------------
+        // CUSTOMIZER MODAL REALTIME EDITOR (ADMIN ONLY)
+        // -------------------------------------------------------------
+        function openCustomizerModal() {
+            document.getElementById('customizer-modal').classList.remove('hidden');
+            document.getElementById('customizer-modal').classList.add('flex');
+        }
+
+        function closeCustomizerModal() {
+            document.getElementById('customizer-modal').classList.add('hidden');
+            document.getElementById('customizer-modal').classList.remove('flex');
+        }
+
+        function initCustomizerInputs() {
+            document.getElementById('input-guest-name').value = invData.guestName;
+            document.getElementById('input-script-url').value = invData.scriptUrl;
+            document.getElementById('input-groom-name').value = invData.groomName;
+            document.getElementById('input-groom-photo').value = invData.groomPhoto;
+            document.getElementById('input-groom-parents').value = invData.groomParents;
+            document.getElementById('input-bride-name').value = invData.brideName;
+            document.getElementById('input-bride-photo').value = invData.bridePhoto;
+            document.getElementById('input-bride-parents').value = invData.brideParents;
+            document.getElementById('input-event-date').value = invData.eventDateText;
+            document.getElementById('input-akad-time').value = invData.akadTime;
+            document.getElementById('input-akad-venue').value = invData.akadVenue;
+            document.getElementById('input-resepsi-venue').value = invData.resepsiVenue;
+            document.getElementById('input-maps-url').value = invData.mapsUrl;
+        }
+
+        function applyCustomizerData() {
+            invData.guestName = document.getElementById('input-guest-name').value.trim() || "Bapak / Ibu / Saudara / i";
+            invData.scriptUrl = document.getElementById('input-script-url').value.trim();
+            localStorage.setItem('wedding_script_url', invData.scriptUrl);
+
+            invData.groomName = document.getElementById('input-groom-name').value.trim();
+            invData.groomPhoto = document.getElementById('input-groom-photo').value.trim();
+            invData.groomParents = document.getElementById('input-groom-parents').value.trim();
+            invData.brideName = document.getElementById('input-bride-name').value.trim();
+            invData.bridePhoto = document.getElementById('input-bride-photo').value.trim();
+            invData.brideParents = document.getElementById('input-bride-parents').value.trim();
+            invData.eventDateText = document.getElementById('input-event-date').value.trim();
+            invData.akadTime = document.getElementById('input-akad-time').value.trim();
+            invData.akadVenue = document.getElementById('input-akad-venue').value.trim();
+            invData.resepsiVenue = document.getElementById('input-resepsi-venue').value.trim();
+            invData.mapsUrl = document.getElementById('input-maps-url').value.trim();
+
+            renderDataToDOM();
+            loadWishesData();
+            closeCustomizerModal();
+            showToast("Perubahan data berhasil diterapkan!");
+        }
+
+        function copyGuestLink() {
+            const guestVal = document.getElementById('input-guest-name').value.trim();
+            const baseUrl = window.location.origin + window.location.pathname;
+            const fullUrl = `${baseUrl}?to=${encodeURIComponent(guestVal)}`;
+
+            copyTextToClipboard(fullUrl);
+            showToast(`Link khusus untuk "${guestVal}" berhasil disalin!`);
+        }
+
+        // -------------------------------------------------------------
+        // COUNTDOWN TIMER REALTIME
+        // -------------------------------------------------------------
+        function startCountdown() {
+            const target = new Date(invData.targetDateISO).getTime();
+
+            setInterval(() => {
+                const now = new Date().getTime();
+                const diff = target - now;
+
+                if (diff > 0) {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    document.getElementById('cd-days').innerText = days < 10 ? '0' + days : days;
+                    document.getElementById('cd-hours').innerText = hours < 10 ? '0' + hours : hours;
+                    document.getElementById('cd-minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+                    document.getElementById('cd-seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+                }
+            }, 1000);
+        }
+
+        // -------------------------------------------------------------
+        // REALTIME GOOGLE SHEETS SPREADSHEET RSVP & UCAPAN ENGINE
+        // -------------------------------------------------------------
+        const defaultWishes = [
+            { name: "Bpk. Hendra & Keluarga", status: "Hadir", message: "Selamat untuk Galih & Ratna! Semoga menjadi keluarga sakinah, mawaddah, warahmah.", time: "2 jam lalu" },
+            { name: "Dr. Rian Ardianto", status: "Hadir", message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khair. Turut bahagia!", time: "5 jam lalu" }
+        ];
+
+        function loadWishesData() {
+            if (invData.scriptUrl) {
+                // Fetch riil dari Google Sheets Spreadsheet Web App
+                fetch(invData.scriptUrl)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (Array.isArray(data)) {
+                            renderWishes(data);
+                        } else {
+                            fallbackLocalWishes();
+                        }
+                    })
+                    .catch(err => {
+                        console.warn("Gagal mengambil data dari Google Sheets, menggunakan data cadangan:", err);
+                        fallbackLocalWishes();
+                    });
+            } else {
+                fallbackLocalWishes();
+            }
+        }
+
+        function fallbackLocalWishes() {
+            let wishes = JSON.parse(localStorage.getItem('wedding_paper_wishes')) || defaultWishes;
+            renderWishes(wishes);
+        }
+
+        function renderWishes(wishes) {
+            const listEl = document.getElementById('wishes-list');
+            document.getElementById('wish-count').innerText = wishes.length;
+            listEl.innerHTML = '';
+
+            if (wishes.length === 0) {
+                listEl.innerHTML = `<p class="text-xs text-parchment-700 italic text-center py-4">Belum ada ucapan. Jadilah yang pertama memberikan doa!</p>`;
+                return;
+            }
+
+            wishes.forEach(item => {
+                const badgeColor = item.status === 'Hadir' ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : 'bg-amber-100 text-amber-800 border-amber-300';
+                
+                const card = document.createElement('div');
+                card.className = "bg-parchment-100 p-3.5 rounded border border-gold-300 text-left shadow-sm";
+                card.innerHTML = `
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-xs text-parchment-900">${escapeHtml(item.name || 'Hamba Allah')}</span>
+                        <span class="text-[10px] font-semibold px-2 py-0.5 rounded border ${badgeColor}">${escapeHtml(item.status || 'Hadir')}</span>
+                    </div>
+                    <p class="text-xs text-parchment-800 italic font-serif">"${escapeHtml(item.message || '')}"</p>
+                    <span class="text-[9px] text-parchment-700 block mt-1">${escapeHtml(item.time || item.date || 'Baru saja')}</span>
+                `;
+                listEl.appendChild(card);
+            });
+        }
+
+        function handleRSVPSubmit(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('rsvp-submit-btn');
+            const name = document.getElementById('rsvp-name').value.trim();
+            const status = document.getElementById('rsvp-status').value;
+            const guests = document.getElementById('rsvp-guests').value;
+            const message = document.getElementById('rsvp-message').value.trim();
+
+            if (!name || !message) return;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<span>Mengirim Ucapan...</span>`;
+
+            if (invData.scriptUrl) {
+                // Kirim data riil ke Google Sheets via POST
+                const formData = new URLSearchParams();
+                formData.append('name', name);
+                formData.append('status', status);
+                formData.append('guests', guests);
+                formData.append('message', message);
+
+                fetch(invData.scriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formData
+                })
+                .then(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `<span>Kirim Ucapan & Konfirmasi</span>`;
+                    document.getElementById('rsvp-message').value = '';
+                    showToast("Terima kasih! Ucapan Anda telah tersimpan di Google Sheets.");
+                    
+                    // Prepend ucapan baru secara langsung
+                    let wishes = JSON.parse(localStorage.getItem('wedding_paper_wishes')) || defaultWishes;
+                    wishes.unshift({ name, status, message, time: 'Baru saja' });
+                    localStorage.setItem('wedding_paper_wishes', JSON.stringify(wishes));
+                    
+                    setTimeout(loadWishesData, 1000);
+                })
+                .catch(err => {
+                    console.error("Gagal kirim ke Apps Script:", err);
+                    saveToLocalStorageOnly(name, status, message, submitBtn);
+                });
+            } else {
+                saveToLocalStorageOnly(name, status, message, submitBtn);
+            }
+        }
+
+        function saveToLocalStorageOnly(name, status, message, submitBtn) {
+            let wishes = JSON.parse(localStorage.getItem('wedding_paper_wishes')) || defaultWishes;
+            wishes.unshift({ name, status, message, time: 'Baru saja' });
+            localStorage.setItem('wedding_paper_wishes', JSON.stringify(wishes));
+
+            renderWishes(wishes);
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `<span>Kirim Ucapan & Konfirmasi</span>`;
+            document.getElementById('rsvp-message').value = '';
+            showToast("Konfirmasi & Doa Restu Anda berhasil dikirim!");
+        }
+
+        // -------------------------------------------------------------
+        // UTILS
+        // -------------------------------------------------------------
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text);
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+
+            toast.classList.remove('translate-y-[-150%]', 'sm:translate-x-full');
+            toast.classList.add('translate-y-0', 'sm:translate-x-0');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'sm:translate-x-0');
+                toast.classList.add('translate-y-[-150%]', 'sm:translate-x-full');
+            }, 3200);
+        }
+
+        function addToGoogleCalendar() {
+            const title = encodeURIComponent(`Pernikahan ${invData.groomName.split(' ')[0]} & ${invData.brideName.split(' ')[0]}`);
+            const details = encodeURIComponent(`Akad Nikah & Resepsi Pernikahan ${invData.groomName} & ${invData.brideName}`);
+            const location = encodeURIComponent(invData.resepsiVenue);
+            const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261128T010000Z/20261128T080000Z&details=${details}&location=${location}`;
+            window.open(url, '_blank');
+        }
+
+        function escapeHtml(text) {
+            return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(el => observer.observe(el));
+        }
+    </script>
+</body>
+</html>
