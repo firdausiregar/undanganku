@@ -222,25 +222,107 @@
                     </div>
                 </div>
 
-                <!-- ACARA (AKAD & RESEPSI) -->
-                <div class="bg-parchment-card/90 border border-gold-400/50 p-5 sm:p-8 rounded-lg my-8 sm:my-12 space-y-6 text-center shadow-sm">
-                    <div class="border-b border-gold-400/30 pb-6">
-                        <h4 class="font-serif text-lg sm:text-xl font-bold text-gold-600 uppercase tracking-wider mb-1">Akad Nikah</h4>
-                        <p id="akad-date" class="font-sans text-xs sm:text-sm font-semibold text-parchment-ink"></p>
-                        <p id="akad-time" class="font-sans text-xs text-parchment-sub mt-0.5"></p>
-                        <p id="akad-location" class="font-sans text-xs italic text-parchment-sub mt-2 font-medium"></p>
+                <!-- ACARA (AKAD & RESEPSI) - DUAL LUXURY PARCHMENT CARDS -->
+                <div class="my-8 sm:my-12">
+                    <div class="text-center mb-6">
+                        <span class="font-cinzel text-[10px] sm:text-xs tracking-[0.2em] text-gold-600 uppercase font-bold">Rangkaian Acara</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-parchment-ink">Waktu & Lokasi</h3>
+                        <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mt-2"></div>
                     </div>
-                    <div>
-                        <h4 class="font-serif text-lg sm:text-xl font-bold text-gold-600 uppercase tracking-wider mb-1">Resepsi Pernikahan</h4>
-                        <p id="resepsi-date" class="font-sans text-xs sm:text-sm font-semibold text-parchment-ink"></p>
-                        <p id="resepsi-time" class="font-sans text-xs text-parchment-sub mt-0.5"></p>
-                        <p id="resepsi-location" class="font-sans text-xs italic text-parchment-sub mt-2 font-medium"></p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
+                        <!-- Card Akad Nikah -->
+                        <div class="relative bg-parchment-card/90 border-2 border-gold-400/60 p-6 rounded-lg text-center flex flex-col justify-between h-full shadow-md hover:shadow-xl transition-all duration-300">
+                            <!-- Corner Filigree -->
+                            <div class="absolute top-1.5 left-1.5 text-gold-500/70 w-5 h-5">
+                                <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L30,0 C20,10 10,10 10,30 L0,0 Z"/></svg>
+                            </div>
+                            <div class="absolute top-1.5 right-1.5 text-gold-500/70 w-5 h-5 rotate-90">
+                                <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L30,0 C20,10 10,10 10,30 L0,0 Z"/></svg>
+                            </div>
+
+                            <div>
+                                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-gold-200 via-gold-400 to-gold-600 text-parchment-ink mb-3 shadow border border-gold-300">
+                                    <svg class="w-6 h-6 text-amber-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                    </svg>
+                                </div>
+                                <h4 class="font-serif text-xl sm:text-2xl font-bold text-gold-700 tracking-wide uppercase">Akad Nikah</h4>
+                                <div class="w-12 h-0.5 bg-gold-400/60 mx-auto my-2"></div>
+
+                                <div class="space-y-3 mt-4 text-xs sm:text-sm text-parchment-sub">
+                                    <div class="flex items-center justify-center gap-2 font-semibold text-parchment-ink">
+                                        <svg class="w-4 h-4 text-gold-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                        <span id="akad-date"></span>
+                                    </div>
+                                    <div class="flex items-center justify-center gap-2">
+                                        <svg class="w-4 h-4 text-gold-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        <span id="akad-time"></span>
+                                    </div>
+                                    <div class="flex items-start justify-center gap-2 pt-1 italic">
+                                        <svg class="w-4 h-4 text-gold-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                        <span id="akad-location"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 mt-4 border-t border-gold-400/30 flex justify-center">
+                                <a id="akad-calendar-btn" href="#" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-2 bg-parchment-base border border-gold-500 text-gold-700 hover:bg-gold-500 hover:text-white transition text-[11px] font-sans font-semibold rounded shadow-xs">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                    <span>Ingatkan Kalender</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card Resepsi Pernikahan -->
+                        <div class="relative bg-parchment-card/90 border-2 border-gold-400/60 p-6 rounded-lg text-center flex flex-col justify-between h-full shadow-md hover:shadow-xl transition-all duration-300">
+                            <!-- Corner Filigree -->
+                            <div class="absolute top-1.5 left-1.5 text-gold-500/70 w-5 h-5">
+                                <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L30,0 C20,10 10,10 10,30 L0,0 Z"/></svg>
+                            </div>
+                            <div class="absolute top-1.5 right-1.5 text-gold-500/70 w-5 h-5 rotate-90">
+                                <svg viewBox="0 0 100 100" fill="currentColor"><path d="M0,0 L30,0 C20,10 10,10 10,30 L0,0 Z"/></svg>
+                            </div>
+
+                            <div>
+                                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-gold-200 via-gold-400 to-gold-600 text-parchment-ink mb-3 shadow border border-gold-300">
+                                    <svg class="w-6 h-6 text-amber-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                    </svg>
+                                </div>
+                                <h4 class="font-serif text-xl sm:text-2xl font-bold text-gold-700 tracking-wide uppercase">Resepsi Pernikahan</h4>
+                                <div class="w-12 h-0.5 bg-gold-400/60 mx-auto my-2"></div>
+
+                                <div class="space-y-3 mt-4 text-xs sm:text-sm text-parchment-sub">
+                                    <div class="flex items-center justify-center gap-2 font-semibold text-parchment-ink">
+                                        <svg class="w-4 h-4 text-gold-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                        <span id="resepsi-date"></span>
+                                    </div>
+                                    <div class="flex items-center justify-center gap-2">
+                                        <svg class="w-4 h-4 text-gold-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        <span id="resepsi-time"></span>
+                                    </div>
+                                    <div class="flex items-start justify-center gap-2 pt-1 italic">
+                                        <svg class="w-4 h-4 text-gold-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                        <span id="resepsi-location"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 mt-4 border-t border-gold-400/30 flex justify-center">
+                                <a id="resepsi-calendar-btn" href="#" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-2 bg-parchment-base border border-gold-500 text-gold-700 hover:bg-gold-500 hover:text-white transition text-[11px] font-sans font-semibold rounded shadow-xs">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                    <span>Ingatkan Kalender</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="pt-2">
-                        <a id="maps-btn" href="#" target="_blank" class="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-gold-500 to-gold-600 text-white transition text-xs font-sans font-semibold tracking-wider rounded shadow hover:opacity-90">
+
+                    <!-- Shared Google Maps Button -->
+                    <div class="text-center mt-6">
+                        <a id="maps-btn" href="#" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gold-500 via-gold-600 to-gold-700 hover:from-gold-600 hover:to-gold-800 text-white transition text-xs font-sans font-bold tracking-widest rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            <span>LOKASI GOOGLE MAPS</span>
+                            <span>PETUNJUK LOKASI (GOOGLE MAPS)</span>
                         </a>
                     </div>
                 </div>
@@ -270,7 +352,7 @@
 
                 <!-- FORM RSVP & REALTIME UCAPAN GOOGLE SHEETS -->
                 <div class="my-8 sm:my-12 pt-6 border-t border-gold-400/30">
-                    <h4 class="font-serif text-xl sm:text-2xl font-bold text-center text-parchment-ink mb-2">RSVP & Doa Restu</h4>
+                    <h4 class="font-serif text-xl sm:text-2xl font-bold text-center text-parchment-ink mb-2">Kirim Ucapan & Doa Restu</h4>
                     <p class="text-center font-sans text-xs text-parchment-sub mb-6">Berikan konfirmasi kehadiran dan ucapan selamat untuk kedua mempelai</p>
                     
                     <form onsubmit="submitRSVP(event)" class="space-y-4 max-w-md mx-auto font-sans text-xs bg-parchment-card/80 p-5 sm:p-6 border border-gold-400/40 rounded-lg shadow-sm">
@@ -360,6 +442,34 @@
             }
         });
 
+        // Helper untuk Google Calendar Link
+        function generateGoogleCalendarUrl(title, details, location, isoStartDate) {
+            const start = new Date(isoStartDate);
+            if (isNaN(start.getTime())) return '#';
+            const end = new Date(start.getTime() + 3 * 60 * 60 * 1000);
+            const formatTime = (d) => d.toISOString().replace(/-|:|\.\d\d\d/g, "");
+            return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatTime(start)}/${formatTime(end)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+        }
+
+        // URL Shortening Helper (is.gd / tinyurl API)
+        async function getShortUrl(longUrl) {
+            try {
+                const res = await fetch(`https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}`);
+                const data = await res.json();
+                if (data.shorturl) return data.shorturl;
+            } catch (e) {}
+
+            try {
+                const res = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`);
+                if (res.ok) {
+                    const shortText = await res.text();
+                    if (shortText.startsWith('http')) return shortText.trim();
+                }
+            } catch (e) {}
+
+            return longUrl;
+        }
+
         // Memuat Konfigurasi dari config.json
         async function initApp() {
             try {
@@ -403,6 +513,27 @@
             document.getElementById('resepsi-location').innerText = configData.resepsiLocation;
 
             document.getElementById('maps-btn').href = configData.mapsUrl;
+
+            // Link Google Calendar untuk Akad & Resepsi
+            const akadCalBtn = document.getElementById('akad-calendar-btn');
+            if (akadCalBtn) {
+                akadCalBtn.href = generateGoogleCalendarUrl(
+                    `Akad Nikah ${pairTitle}`,
+                    `Acara Akad Nikah Pernikahan ${pairTitle}`,
+                    configData.akadLocation,
+                    configData.targetDate
+                );
+            }
+
+            const resepsiCalBtn = document.getElementById('resepsi-calendar-btn');
+            if (resepsiCalBtn) {
+                resepsiCalBtn.href = generateGoogleCalendarUrl(
+                    `Resepsi Pernikahan ${pairTitle}`,
+                    `Acara Resepsi Pernikahan ${pairTitle}`,
+                    configData.resepsiLocation,
+                    configData.targetDate
+                );
+            }
 
             // Baca Nama Tamu dari URL Parameter ?to=Nama+Tamu
             const urlParams = new URLSearchParams(window.location.search);
@@ -569,17 +700,27 @@
             }
         }
 
-        // POPUP MODAL ADMIN GENERATOR LINK TAMU (SWEETALERT2)
+        // POPUP MODAL ADMIN GENERATOR LINK TAMU + SHORTENER (SWEETALERT2)
         function openAdminModal() {
             customSwal.fire({
                 title: 'Generator Link Tamu',
                 html: `
                     <div class="text-left space-y-3 font-sans">
-                        <label class="block text-xs font-bold text-parchment-ink">Nama Tamu Undangan:</label>
-                        <input type="text" id="admin-guest-input" class="w-full p-2.5 bg-parchment-base border border-gold-400 rounded text-xs" placeholder="Contoh: Bpk. Budi & Keluarga">
+                        <div>
+                            <label class="block text-xs font-bold text-parchment-ink mb-1">Nama Tamu Undangan:</label>
+                            <input type="text" id="admin-guest-input" class="w-full p-2.5 bg-parchment-base border border-gold-400 rounded text-xs focus:outline-none focus:border-gold-600" placeholder="Contoh: Bpk. Budi & Keluarga">
+                        </div>
                         
-                        <label class="block text-xs font-bold text-parchment-ink mt-2">Hasil Link Undangan:</label>
-                        <input type="text" id="admin-link-output" readonly class="w-full p-2.5 bg-parchment-card border border-gold-400 rounded text-xs text-gold-700 font-mono" placeholder="Link otomatis akan muncul di sini...">
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="block text-xs font-bold text-parchment-ink">Hasil Link Undangan:</label>
+                                <button type="button" id="btn-shorten-url" class="text-[10px] text-gold-700 hover:text-gold-900 font-bold underline flex items-center gap-1">
+                                    ✂️ Perpendek Link (TinyURL)
+                                </button>
+                            </div>
+                            <input type="text" id="admin-link-output" readonly class="w-full p-2.5 bg-parchment-card border border-gold-400 rounded text-xs text-gold-700 font-mono" placeholder="Link otomatis akan muncul di sini...">
+                            <p id="shorten-status" class="text-[10px] text-gold-600 font-semibold italic mt-1 hidden"></p>
+                        </div>
                     </div>
                 `,
                 showCancelButton: true,
@@ -588,8 +729,10 @@
                 didOpen: () => {
                     const input = document.getElementById('admin-guest-input');
                     const output = document.getElementById('admin-link-output');
+                    const shortenBtn = document.getElementById('btn-shorten-url');
+                    const shortenStatus = document.getElementById('shorten-status');
 
-                    input.addEventListener('input', () => {
+                    const updateLink = () => {
                         const guestVal = input.value.trim();
                         const baseUrl = window.location.origin + window.location.pathname;
                         if (guestVal) {
@@ -597,6 +740,24 @@
                         } else {
                             output.value = '';
                         }
+                        shortenStatus.classList.add('hidden');
+                    };
+
+                    input.addEventListener('input', updateLink);
+
+                    shortenBtn.addEventListener('click', async () => {
+                        if (!output.value) {
+                            customSwal.showValidationMessage('Harap masukkan nama tamu terlebih dahulu.');
+                            return;
+                        }
+                        shortenStatus.innerText = "⚡ Memperpendek link...";
+                        shortenStatus.classList.remove('hidden');
+                        shortenBtn.disabled = true;
+
+                        const shortLink = await getShortUrl(output.value);
+                        output.value = shortLink;
+                        shortenStatus.innerText = "✅ Link berhasil diperpendek!";
+                        shortenBtn.disabled = false;
                     });
                 }
             }).then((result) => {
