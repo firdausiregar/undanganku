@@ -69,7 +69,7 @@
                 0 20px 40px -15px rgba(0,0,0,0.08);
         }
 
-        /* Custom Styling SweetAlert2 Parchment Theme */
+        /* Custom SweetAlert2 Parchment Theme */
         .swal-parchment-popup {
             background: #FAF6EE !important;
             border: 2px solid #D4AF37 !important;
@@ -114,14 +114,14 @@
         </div>
     </div>
 
-    <!-- HALAMAN UTAMA UNDANGAN -->
+    <!-- HALAMAN UTAMA UNDANGAN (TAMPILAN ASLI FAVORITMU) -->
     <main class="min-h-screen py-4 sm:py-8 px-2 sm:px-6 flex justify-center items-center bg-[#1A1816]">
-        <div class="bg-parchment-texture max-w-2xl w-full rounded-sm p-3 sm:p-10 border-4 sm:border-8 border-double border-[#D4AF37]/60 paper-shadow-3d relative my-2 sm:my-4">
+        <div class="bg-parchment-texture max-w-2xl w-full rounded-sm p-4 sm:p-10 border-4 sm:border-8 border-double border-[#D4AF37]/60 paper-shadow-3d relative my-2 sm:my-4">
             
             <!-- Bingkai Garis Dalam -->
             <div class="border border-[#D4AF37]/50 p-3 sm:p-8 relative">
                 
-                <!-- Ornamen Ukiran Sudut Kartu (SVG) -->
+                <!-- Ornamen Ukiran Sudut Kartu (SVG Pas Presisi) -->
                 <svg class="absolute -top-2.5 -left-2.5 sm:-top-3 sm:-left-3 w-6 h-6 sm:w-8 sm:h-8 text-gold-500" viewBox="0 0 50 50" fill="currentColor">
                     <path d="M0,0 L25,0 C15,5 10,10 10,25 C10,10 5,5 0,0 Z M0,0 L0,25 C5,15 10,10 25,10 C10,10 5,5 0,0 Z"/>
                 </svg>
@@ -181,48 +181,24 @@
 
                 </div>
 
-                <!-- ACARA (AKAD & RESEPSI DUAL PARCHMENT CARD) -->
-                <div class="my-8 sm:my-10 space-y-4 sm:space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        
-                        <!-- Card Akad -->
-                        <div class="bg-parchment-card/90 border border-[#D4AF37]/50 p-4 sm:p-5 rounded-lg text-center flex flex-col justify-between space-y-3 shadow-sm">
-                            <div>
-                                <div class="w-8 h-8 mx-auto text-gold-600 mb-2">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                                </div>
-                                <h4 class="font-serif text-base sm:text-lg font-bold text-gold-600 uppercase tracking-wider mb-1">Akad Nikah</h4>
-                                <p id="akad-date" class="font-sans text-xs font-semibold text-parchment-ink">Sabtu, 28 November 2026</p>
-                                <p id="akad-time" class="font-sans text-[11px] text-parchment-sub">08.00 WIB - Selesai</p>
-                                <p id="akad-location" class="font-sans text-[11px] italic text-parchment-sub mt-1">Masjid Agung Al-Azhar, Jakarta</p>
-                            </div>
-                            <button onclick="addToCalendar('Akad Nikah')" class="mt-2 w-full py-1.5 border border-[#D4AF37] text-gold-600 hover:bg-gold-500 hover:text-white transition text-[10px] font-sans font-semibold rounded">
-                                📅 Ingatkan Kalender
-                            </button>
-                        </div>
-
-                        <!-- Card Resepsi -->
-                        <div class="bg-parchment-card/90 border border-[#D4AF37]/50 p-4 sm:p-5 rounded-lg text-center flex flex-col justify-between space-y-3 shadow-sm">
-                            <div>
-                                <div class="w-8 h-8 mx-auto text-gold-600 mb-2">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                                </div>
-                                <h4 class="font-serif text-base sm:text-lg font-bold text-gold-600 uppercase tracking-wider mb-1">Resepsi Pernikahan</h4>
-                                <p id="resepsi-date" class="font-sans text-xs font-semibold text-parchment-ink">Sabtu, 28 November 2026</p>
-                                <p id="resepsi-time" class="font-sans text-[11px] text-parchment-sub">11.00 WIB - 14.00 WIB</p>
-                                <p id="resepsi-location" class="font-sans text-[11px] italic text-parchment-sub mt-1">Grand Ballroom Hotel Indonesia Kempinski</p>
-                            </div>
-                            <button onclick="addToCalendar('Resepsi Pernikahan')" class="mt-2 w-full py-1.5 border border-[#D4AF37] text-gold-600 hover:bg-gold-500 hover:text-white transition text-[10px] font-sans font-semibold rounded">
-                                📅 Ingatkan Kalender
-                            </button>
-                        </div>
-
+                <!-- ACARA (AKAD & RESEPSI ASLI BERSIH MEWAH) -->
+                <div class="bg-parchment-card/90 border border-[#D4AF37]/50 p-5 sm:p-6 rounded-lg my-8 sm:my-10 space-y-6 text-center">
+                    <div class="border-b border-[#D4AF37]/30 pb-5">
+                        <h4 class="font-serif text-base sm:text-lg font-bold text-gold-600 uppercase tracking-wider mb-1">Akad Nikah</h4>
+                        <p id="akad-date" class="font-sans text-xs font-semibold text-parchment-ink">Sabtu, 28 November 2026</p>
+                        <p id="akad-time" class="font-sans text-xs text-parchment-sub">08.00 WIB - Selesai</p>
+                        <p id="akad-location" class="font-sans text-xs italic text-parchment-sub mt-1.5">Masjid Agung Al-Azhar, Jakarta</p>
                     </div>
-
-                    <!-- Tombol Google Maps -->
-                    <div class="text-center pt-2">
-                        <a id="maps-btn" href="https://maps.google.com" target="_blank" class="inline-block px-6 py-2.5 bg-gradient-to-r from-gold-500 to-gold-600 text-white transition text-xs font-sans tracking-wider rounded shadow-md hover:opacity-90 font-semibold">
-                            📍 PETUNJUK LOKASI GOOGLE MAPS
+                    <div>
+                        <h4 class="font-serif text-base sm:text-lg font-bold text-gold-600 uppercase tracking-wider mb-1">Resepsi Pernikahan</h4>
+                        <p id="resepsi-date" class="font-sans text-xs font-semibold text-parchment-ink">Sabtu, 28 November 2026</p>
+                        <p id="resepsi-time" class="font-sans text-xs text-parchment-sub">11.00 WIB - 14.00 WIB</p>
+                        <p id="resepsi-location" class="font-sans text-xs italic text-parchment-sub mt-1.5">Grand Ballroom Hotel Indonesia Kempinski</p>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <a id="maps-btn" href="https://maps.google.com" target="_blank" class="inline-block px-6 py-2.5 bg-gradient-to-r from-gold-500 to-gold-600 text-white transition text-xs font-sans tracking-wider rounded shadow hover:opacity-90 font-semibold">
+                            LOKASI GOOGLE MAPS
                         </a>
                     </div>
                 </div>
@@ -250,9 +226,9 @@
                     </div>
                 </div>
 
-                <!-- FORM RSVP & REALTIME UCAPAN -->
+                <!-- FORM RSVP & REALTIME UCAPAN GOOGLE SHEETS -->
                 <div class="my-8 sm:my-10 pt-6 border-t border-[#D4AF37]/30">
-                    <h4 class="font-serif text-lg sm:text-xl font-bold text-center text-parchment-ink mb-4">RSVP & Doa Restu</h4>
+                    <h4 class="font-serif text-lg sm:text-xl font-bold text-center text-parchment-ink mb-4">Mohon Ucapan & Doa Restu</h4>
                     
                     <form onsubmit="submitRSVP(event)" class="space-y-3 sm:space-y-4 max-w-md mx-auto font-sans text-xs bg-parchment-card/60 p-4 sm:p-5 border border-[#D4AF37]/30 rounded">
                         <div>
@@ -279,7 +255,7 @@
                         </button>
                     </form>
 
-                    <!-- BUKU TAMU REALTIME -->
+                    <!-- LIST UCAPAN / BUKU TAMU REALTIME -->
                     <div class="mt-6 sm:mt-8 max-w-md mx-auto">
                         <h5 class="font-serif font-bold text-xs sm:text-sm text-parchment-ink mb-2 sm:mb-3">Ucapan Doa Restu:</h5>
                         <div id="comments-container" class="space-y-2.5 max-h-56 overflow-y-auto pr-1 text-xs">
@@ -298,7 +274,7 @@
         </div>
     </main>
 
-    <!-- TOMBOL MODAL ADMIN GENERATOR (HANYA MUNCUL JIKA ?admin=true) -->
+    <!-- TOMBOL ADMIN GENERATOR LINK (?admin=true) -->
     <div id="admin-floating-btn" class="hidden fixed bottom-4 right-4 z-40">
         <button onclick="openAdminModal()" class="bg-amber-600 hover:bg-amber-700 text-white p-3 rounded-full shadow-2xl flex items-center gap-2 text-xs font-sans font-semibold">
             <span>⚙️ Generator Link Tamu</span>
@@ -319,7 +295,7 @@
             
             <div class="space-y-2 pt-2">
                 <button onclick="generateShortLink()" id="btn-shorten" class="w-full py-2 bg-stone-800 text-white rounded font-semibold hover:bg-stone-900 transition flex items-center justify-center gap-1">
-                    <span>✂️ Perpendek Link (TinyURL / is.gd)</span>
+                    <span>✂️ Perpendek Link (is.gd)</span>
                 </button>
                 <button onclick="copyGeneratedLink()" class="w-full py-2 bg-gradient-to-r from-gold-500 to-gold-600 text-white rounded font-semibold hover:opacity-90 transition">
                     📋 Salin Link Undangan
@@ -356,7 +332,7 @@
         let ytPlayer = null;
         let shortUrlCache = "";
 
-        // Memuat Konfigurasi
+        // Memuat Konfigurasi (dari config.json jika ada)
         async function initApp() {
             try {
                 const res = await fetch('config.json');
@@ -368,7 +344,7 @@
                 console.log("Menggunakan data default.");
             }
 
-            // Apply DOM Data
+            // Terapkan ke DOM
             document.getElementById('groom-name').innerText = configData.groomName;
             document.getElementById('groom-parents').innerText = configData.groomParents;
             document.getElementById('groom-photo').src = configData.groomPhoto;
@@ -395,7 +371,7 @@
 
             document.getElementById('maps-btn').href = configData.mapsUrl;
 
-            // Parameter ?mengundang=
+            // Baca Parameter ?mengundang=
             const urlParams = new URLSearchParams(window.location.search);
             const guestName = urlParams.get('mengundang') || urlParams.get('to');
             if (guestName) {
@@ -415,7 +391,7 @@
             }
         }
 
-        // YouTube IFrame API
+        // YouTube IFrame API (Degung Sunda t_L7EaDtVO4)
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -435,7 +411,7 @@
             });
         }
 
-        // Buka Undangan & Putar Audio
+        // Buka Undangan & Autoplay Audio
         function openInvitation() {
             const cover = document.getElementById('cover');
             const mainBody = document.getElementById('main-body');
@@ -474,7 +450,7 @@
             }, 1000);
         }
 
-        // Load Komentar Realtime
+        // Load Komentar Realtime dari Google Sheets
         async function loadComments() {
             const container = document.getElementById('comments-container');
             try {
@@ -500,7 +476,7 @@
             }
         }
 
-        // Submit RSVP dengan SweetAlert2 Popup
+        // Submit RSVP + Popup SweetAlert2
         async function submitRSVP(e) {
             e.preventDefault();
             const btn = document.getElementById('btn-submit-rsvp');
@@ -551,17 +527,7 @@
             }
         }
 
-        // Add to Google Calendar Template
-        function addToCalendar(type) {
-            const title = encodeURIComponent(`Pernikahan Firdaus & Riska (${type})`);
-            const details = encodeURIComponent(`Acara ${type} Pernikahan Muhamad Husnul Firdaus & Riska Larasati.`);
-            const location = encodeURIComponent(type === 'Akad Nikah' ? configData.akadLocation : configData.resepsiLocation);
-            
-            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`;
-            window.open(calendarUrl, '_blank');
-        }
-
-        // Modal Admin Functions
+        // Modal Admin Generator
         function openAdminModal() {
             document.getElementById('admin-modal').classList.remove('hidden');
         }
@@ -598,7 +564,7 @@
             resultDiv.innerText = shortUrlCache;
             resultDiv.classList.remove('hidden');
             btn.disabled = false;
-            btn.innerText = "✂️ Perpendek Link (TinyURL / is.gd)";
+            btn.innerText = "✂️ Perpendek Link (is.gd)";
 
             navigator.clipboard.writeText(shortUrlCache);
             alert('Link pendek berhasil disalin: ' + shortUrlCache);
